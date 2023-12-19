@@ -6,31 +6,30 @@ import time
 
 start = time.time()
 
-def collatz_sequence(n):
-    a = [n]
-    while n != 1:
-        if n % 2 == 0:
-            n /= 2
-            a.append(n)
+def collatz_sequence_count(n):
+    # recursive collatz count. Used some pseudo code to wrap my head around it. Recursion weird but saves computation time
+    while n > 1: # added while else as a base case so that a RecursionError does not occur
+        if n in vals: # if n has already been calculated, why do it again?
+            return vals[n]
+        elif n % 2 == 0:
+            vals[n] = 1 + collatz_sequence_count(n/2) # Collatz(n) = Collatz(n/2) + 1 if even n
         else:
-            n = 3*n + 1
-            a.append(n)
-    return a
+            vals[n] = 2 + collatz_sequence_count((3*n + 1)/2) # Collatz(n) = Collatz((3n+1)/2) + 2 if odd n
+        return vals[n]
+    else:
+        return -1
 
-def longest_collatz_sequence(limit):
-    lst_of_collatz_sequences = []
-    for i in range(2,limit):
-        lst_of_collatz_sequences.append(collatz_sequence(i))
-    
-    max_len_sequence = 0
-    for i, seq in enumerate(lst_of_collatz_sequences):
-        if len(seq) > max_len_sequence:
-            max_len_sequence = len(seq)
-            starting_num = seq[0]
-    
-    return starting_num
+limit = 1_000_000
+vals = dict()
+
+max_count = 0
+corresponding_n = 0
+for n in range(limit//2 + 1, limit): # Collatz(2n) > Collatz(n) so no need to check n <= limit//2
+    if collatz_sequence_count(n) > max_count:
+        max_count = collatz_sequence_count(n)
+        corresponding_n = n
 
 if __name__ == "__main__":
-    print(longest_collatz_sequence(1_000_000))
+    print(corresponding_n)
     end = time.time()
     print(f"Computation time: {1000*(end-start)} ms")
