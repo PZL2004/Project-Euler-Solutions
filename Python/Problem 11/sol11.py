@@ -32,7 +32,7 @@ def prod_grid(grid_string, rows, cols, adj_num_length):
     if rows < adj_num_length or cols < adj_num_length:
         return "Adjacent number length cannot be greater than any of the grid dimensions"
 
-    grid_arr = np.fromstring(grid_s, dtype=np.int64, sep=' ').reshape((rows, cols))
+    grid_arr = np.fromstring(grid_string, dtype=np.int64, sep=' ').reshape((rows, cols))
 
     prods = []
     for i in range(rows-adj_num_length+1):
