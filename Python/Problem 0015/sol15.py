@@ -3,7 +3,7 @@ Lattice Paths
 How many such routes are there through a 20 x 20 grid?
 
 This has to do with combinatorics since the order that we choose when to go 
-right and down to get from the top left right to the bottom right does not matter, and
+right and down to get from the top left to the bottom right does not matter, and
 the total Right's and Down's we need never changes.
 
 Given a grid of l x w: we get (l+w) choose l. Since l = w in our case, we can simplify to
