@@ -36,7 +36,7 @@ for i in range(len(grid_arr)-3):
         prods.append(grid_arr[i][j]*grid_arr[i+1][j]*grid_arr[i+2][j]*grid_arr[i+3][j]) #up and down same
         prods.append(grid_arr[i][j]*grid_arr[i][j+1]*grid_arr[i][j+2]* grid_arr[i][j+3]) #left and right same
         prods.append(grid_arr[i][j]*grid_arr[i+1][j+1]*grid_arr[i+2][j+2]*grid_arr[i+3][j+3]) #diagonally right. aka \
-        prods.append(grid_arr[i][-1-j]*grid_arr[i+1][-2-j]*grid_arr[i+2][-3-j]*grid_arr[i+3][-4-j])#diagonally left aka /
+        prods.append(grid_arr[i][-1-j]*grid_arr[i+1][-2-j]*grid_arr[i+2][-3-j]*grid_arr[i+3][-4-j]) #diagonally left aka /
 
 if __name__ == "__main__":
     print(max(prods))
