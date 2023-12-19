@@ -9,7 +9,7 @@ start = time.time()
 def collatz_sequence_count(n):
     # recursive collatz count. Used some pseudo code to wrap my head around it. Recursion weird but saves computation time
     while n > 1: # added while else as a base case so that a RecursionError does not occur
-        if n in vals: # if n has already been calculated, why do it again?
+        if n in vals: # if Collatz(n) has already been calculated, why do it again?
             return vals[n]
         elif n % 2 == 0:
             vals[n] = 1 + collatz_sequence_count(n/2) # Collatz(n) = Collatz(n/2) + 1 if even n
