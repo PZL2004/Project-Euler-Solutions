@@ -28,17 +28,20 @@ grid_s = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 \
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 \
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
-grid_arr = np.fromstring(grid_s, dtype=np.int64, sep=' ').reshape((20, 20))
+def prod_grid(grid_string, rows, cols, adj_num_length):
 
-prods = []
-for i in range(len(grid_arr)-3):
-    for j in range(len(grid_arr[0])-3):
-        prods.append(grid_arr[i][j]*grid_arr[i+1][j]*grid_arr[i+2][j]*grid_arr[i+3][j]) #up and down same
-        prods.append(grid_arr[i][j]*grid_arr[i][j+1]*grid_arr[i][j+2]* grid_arr[i][j+3]) #left and right same
-        prods.append(grid_arr[i][j]*grid_arr[i+1][j+1]*grid_arr[i+2][j+2]*grid_arr[i+3][j+3]) #diagonally right. aka \
-        prods.append(grid_arr[i][-1-j]*grid_arr[i+1][-2-j]*grid_arr[i+2][-3-j]*grid_arr[i+3][-4-j]) #diagonally left aka /
+    grid_arr = np.fromstring(grid_s, dtype=np.int64, sep=' ').reshape((rows, cols))
+
+    prods = []
+    for i in range(rows-adj_num_length+1):
+        for j in range(cols-adj_num_length+1):
+            prods.append(grid_arr[i][j]*grid_arr[i+1][j]*grid_arr[i+2][j]*grid_arr[i+3][j]) #up and down same
+            prods.append(grid_arr[i][j]*grid_arr[i][j+1]*grid_arr[i][j+2]* grid_arr[i][j+3]) #left and right same
+            prods.append(grid_arr[i][j]*grid_arr[i+1][j+1]*grid_arr[i+2][j+2]*grid_arr[i+3][j+3]) #diagonally right. aka \
+            prods.append(grid_arr[i][-1-j]*grid_arr[i+1][-2-j]*grid_arr[i+2][-3-j]*grid_arr[i+3][-4-j]) #diagonally left aka /
+    return max(prods)
 
 if __name__ == "__main__":
-    print(max(prods))
+    print(prod_grid(grid_s, 20, 20, 4))
     end = time.time()
     print(f"Computation time: {1000*(end-start)} ms")
