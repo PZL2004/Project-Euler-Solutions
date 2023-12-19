@@ -18,7 +18,6 @@ def max_prime_factor(n):
             i += 1
 
     # max in list will always be last number
-    print(a)
     return a[-1]
 
 if __name__ == "__main__":
