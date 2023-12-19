@@ -1,0 +1,1 @@
+This is where all my own Project Euler solutions in Python are written.
