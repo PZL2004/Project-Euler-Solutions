@@ -29,6 +29,8 @@ grid_s = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 \
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
 def prod_grid(grid_string, rows, cols, adj_num_length):
+    if rows < adj_num_length or cols < adj_num_length:
+        return "Adjacent number length cannot be greater than any of the grid dimensions"
 
     grid_arr = np.fromstring(grid_s, dtype=np.int64, sep=' ').reshape((rows, cols))
 
