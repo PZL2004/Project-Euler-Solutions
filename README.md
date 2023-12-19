@@ -6,4 +6,4 @@ A lot of the time this requires knowledge outside of coding, so what I'll do is 
 
 Some of the code is probably similar to others in structure as I have skimmed through pseudocode for a few of these. Anything not mine I will list:
 
-  Anything with a Sieve of Erastosthenes in Python was adapted from https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/
+- Anything with a Sieve of Erastosthenes in Python was adapted from https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/
