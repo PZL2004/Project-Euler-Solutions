@@ -5,7 +5,7 @@ import time
 
 start = time.time()
 
-with open("/home/pablo/projects/Project-Euler-Solutions/Python/Problem 0022/names.txt", "r") as f:
+with open("Python/Problem 0022/names.txt", "r") as f:
     for i in f:
         names = sorted(i.replace("\"", "").split(","))
 

@@ -12,7 +12,7 @@ def max_path_sum(tree):
     return tree[0][0]
 
 # change path to whatever yours is
-with open("/home/pablo/projects/Project-Euler-Solutions/Python/Problem 0018/tree.txt", "r") as f:
+with open("Python/Problem 0018/tree.txt", "r") as f:
     tree = []
     for i in f:
         tree.append(list(map(int, i.split(" ")))) #very cool
@@ -21,5 +21,3 @@ if __name__ == "__main__":
     print(max_path_sum(tree))
     end = time.time()
     print(f"Computation time: {1000*(end-start)} ms")
-            
-    
